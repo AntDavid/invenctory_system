@@ -18,5 +18,3 @@ def initialize_database():  # Define a função para inicializar o banco de dado
     conn.commit()  # Confirma a execução do comando SQL (salva as alterações no banco de dados)
     conn.close()  # Fecha a conexão com o banco de dados
 
-if __name__ == "__main__":  # Verifica se o script está sendo executado diretamente
-    initialize_database()  # Chama a função para inicializar o banco de dados e criar a tabela

@@ -72,5 +72,3 @@ def delete(item_id):
     except Exception as e:
         return jsonify({"error": f"Erro na remoção: {str(e)}"}), 500  # Retorna erro 500 em caso de exceção
 
-if __name__ == "__main__":  # Verifica se o script está sendo executado diretamente
-    app.run(debug=True)  # Inicia o servidor Flask em modo de depuração (debug)
