@@ -6,7 +6,7 @@ db = Database()  # Cria uma instância da classe Database para interagir com o b
 
 @app.after_request  # Define uma função para ser executada após cada resposta, adicionando cabeçalhos CORS
 def add_cors_headers(response):
-    """Adicionar cabeçalhos CORS manualmente"""
+    
     response.headers['Access-Control-Allow-Origin'] = '*'  # Permite qualquer origem acessar o recurso
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE'  # Define os métodos HTTP permitidos
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'  # Define os cabeçalhos permitidos

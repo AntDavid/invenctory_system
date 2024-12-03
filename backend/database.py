@@ -35,6 +35,7 @@ class Database:  # Define a classe Database para gerenciar a interação com o b
                 INSERT INTO items (item_name, description, quantity, price)
                 VALUES (?, ?, ?, ?)""", (name, desc, amount, price))  # Executa a consulta SQL para inserir um novo item na tabela
                 conn.commit()  # Confirma a transação para garantir que os dados sejam salvos no banco
+        
         except Exception as e:  # Captura qualquer exceção que ocorra durante o processo
             return str(e)  # Retorna a mensagem de erro como string
 
@@ -42,9 +43,10 @@ class Database:  # Define a classe Database para gerenciar a interação com o b
         try:
             with self.connect() as conn:  # Estabelece a conexão com o banco de dados dentro de um contexto
                 conn.cursor().execute("""
-                    UPDATE items SET quantity = ?  # Comando SQL para atualizar a quantidade de um item
+                    UPDATE items SET quantity = ?                   
                     WHERE id = ?""", (amount, item_id))  # O valor da quantidade e o id do item são passados como parâmetros
                 conn.commit()  # Confirma a transação para garantir que a atualização seja salva no banco
+        
         except Exception as e:  # Captura qualquer exceção que ocorra durante o processo
             return str(e)  # Retorna a mensagem de erro como string
 
@@ -53,5 +55,6 @@ class Database:  # Define a classe Database para gerenciar a interação com o b
             with self.connect() as conn:  # Estabelece a conexão com o banco de dados dentro de um contexto
                 conn.cursor().execute("DELETE FROM items WHERE id = ?", (item_id,))  # Executa a consulta SQL para excluir um item com o id fornecido
                 conn.commit()  # Confirma a transação para garantir que a exclusão seja realizada no banco
+        
         except Exception as e:  # Captura qualquer exceção que ocorra durante o processo
             return str(e)  # Retorna a mensagem de erro como string
